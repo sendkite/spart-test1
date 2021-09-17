@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Jua', sans-serif;
+        }
+
+        .wrap {
+            width: 900px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        .container {
+            margin-left: 20px;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            hide();
+        });
+
+        function show() {
+            $('#check-box').show();
+            $('#btn').hide();
+        }
+
+        function hide() {
+            $('#check-box').hide();
+        }
+
+        function next() {
+            $.ajax({
+                type: "GET",
+                url: "/post"
+            })
+        }
+    </script>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">주식 종목 추천!!</h1>
+            <small>원하시는 종목을 추천합니다</small>
+            <hr>
+            <button id="btn" onclick="show()" class="btn btn-primary">추천 시작</button>
+            <div class="check-box" id="check-box">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="kos">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        코스피
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="koq">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        코스닥
+                    </label>
+                </div>
+                <button type="next-btn" onclick="next()" class="btn btn-success">다음</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
